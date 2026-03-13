@@ -25,3 +25,4 @@ permalink: /
 {% else %}
 <p class="empty">No published viewpoint yet. Add one file to <code>_topics/</code>.</p>
 {% endif %}
+
