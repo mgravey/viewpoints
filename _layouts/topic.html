@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article class="topic">
+  <header class="topic-header">
+    {% if page.status == 'draft' %}
+      <p class="draft-badge">Draft</p>
+    {% endif %}
+    <p class="kicker">{{ page.topic }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="summary">{{ page.summary }}</p>
+    <p class="meta">
+      Published {{ page.date | date: "%Y-%m-%d" }}
+      {% if page.updated %}
+        · Updated {{ page.updated | date: "%Y-%m-%d" }}
+      {% endif %}
+    </p>
+    {% if page.tags and page.tags.size > 0 %}
+      <ul class="tag-list">
+        {% for tag in page.tags %}
+          <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </header>
+
+  <section class="topic-content">
+    {{ content }}
+  </section>
+
+  <footer class="topic-footer">
+    {% assign repo = site.github_repo %}
+    {% assign commit_ref = site.build_commit %}
+    {% assign default_ref = site.github_default_ref | default: "master" %}
+    {% assign source_ref = commit_ref | default: default_ref %}
+    {% assign source_url = repo | append: "/blob/" | append: source_ref | append: "/" | append: page.path %}
+    <p>
+      <strong>Citation suggestion:</strong>
+      Gravey, M. ({{ page.updated | default: page.date | date: "%Y" }}). {{ page.title }}. Viewpoints.
+      {{ page.url | absolute_url }}
+    </p>
+    {% if repo %}
+      <p>
+        <strong>Versioned source{% if commit_ref and commit_ref != "" %} (exact commit){% else %} (branch fallback){% endif %}:</strong>
+        <a href="{{ source_url }}">{{ source_url }}</a>
+      </p>
+      {% if commit_ref and commit_ref != "" %}
+        <p class="meta">Snapshot commit: <code>{{ commit_ref | slice: 0, 12 }}</code></p>
+      {% endif %}
+    {% endif %}
+    <p><a href="{{ '/' | relative_url }}">Back to all viewpoints</a></p>
+  </footer>
+</article>

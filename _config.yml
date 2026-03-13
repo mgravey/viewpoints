@@ -1,0 +1,42 @@
+title: "Viewpoints"
+description: "Short, citable viewpoint papers on geoscience, data science, and research practice."
+url: "https://www.mgravey.com"
+baseurl: "/viewpoints"
+permalink: pretty
+timezone: Europe/Vienna
+github_repo: "https://github.com/mgravey/viewpoints"
+github_default_ref: "master"
+build_commit: ""
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+sass:
+  style: compressed
+
+collections:
+  topics:
+    output: true
+    permalink: /:name/
+
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: "topics"
+    values:
+      layout: topic
+      status: published
+
+feed:
+  collections:
+    - topics
+
+exclude:
+  - node_modules
+  - vendor
+  - Gemfile.lock
+  - .github
