@@ -9,6 +9,8 @@ tags: [research-practice, scientific-reasoning, statistics, systems]
 status: published
 ---
 
+{% include topic-figure.html src="/assets/images/viewpoints/clearing-the-path.webp" alt="Walkers follow a long detour around a fallen branch while one person lifts it out of the direct path." caption="We can keep following the workaround, or remove the problem that made it necessary." loading="eager" %}
+
 In French, we have a familiar expression: *« On fait avec. »* We make do. We accept the situation and find a way to live with it.
 
 Sometimes, we have to. But we too easily turn this temporary necessity into a permanent expectation.
@@ -20,6 +22,8 @@ For whoever can change the system, resisting may be the cheapest option. Fixing 
 And when we give up, we risk sending a convenient signal: apparently, fixing it was unnecessary. People adapted.
 
 Our ability to cope becomes an excuse to leave the problem unresolved.
+
+{% include topic-figure.html src="/assets/images/viewpoints/cycle-of-acceptance.webp" alt="A cycle runs from problem to workaround to habit to accepted as normal, then back to the unresolved problem. An alternative path leads from the problem to question and improve, then to less effort for everyone." caption="A workaround can become a habit that keeps the original problem in place. Questioning it opens another path." %}
 
 I think we should keep expecting things to improve. We should question unnecessary friction, challenge choices that no longer make sense, and be willing to improve systems—or replace them when necessary.
 

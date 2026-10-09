@@ -198,7 +198,42 @@ main {
   margin-top: 0;
 }
 
+.topic-figure {
+  margin: 1.8rem 0;
+}
+
+.topic-figure a {
+  display: block;
+  border-radius: 10px;
+}
+
+.topic-figure a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.topic-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.topic-figure figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.figure-enlarge {
+  white-space: nowrap;
+}
+
 .topic-footer {
+  overflow-wrap: anywhere;
   margin-top: 1.35rem;
   border-top: 1px dashed var(--line);
   padding-top: 0.95rem;

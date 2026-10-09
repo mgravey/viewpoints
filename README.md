@@ -29,6 +29,19 @@ Required front matter fields:
 
 Both articles are dated 2026-10-09 and marked `published`, so they appear automatically on the homepage and in the topic feed after deployment. Statistical references use DOI links; the PCA example is self-contained.
 
+## Article illustrations
+
+Each of these two articles includes its original painted illustration near the beginning and a schematic alongside the relevant argument. The four selected images were generated with OpenAI's built-in image tool and are stored in `assets/images/viewpoints/` as WebP assets. Paintings use quality 85 compression; schematics use lossless compression to preserve their lettering. No cropping is applied.
+
+The shared `_includes/topic-figure.html` renders responsive images with descriptive alt text, captions, fixed intrinsic dimensions, and links to the full-size assets. Opening illustrations load eagerly; later figures load lazily. Use Jekyll's `relative_url` filter for asset links so they work under `/viewpoints/`.
+
+Image concepts:
+
+- `clearing-the-path.webp`: walkers follow a detour while one person removes the fallen branch.
+- `pruning-new-directions.webp`: a gardener cuts young shoots while the main stem reaches a barrier.
+- `cycle-of-acceptance.webp`: the problem–workaround–habit cycle and a route through improvement.
+- `research-alternatives.webp`: early rejection of alternatives compared with keeping research directions open.
+
 ## Local preview and deployment
 
 Install the gems with `bundle install`, then run `bundle exec jekyll serve` and open `http://localhost:4000/viewpoints/`.

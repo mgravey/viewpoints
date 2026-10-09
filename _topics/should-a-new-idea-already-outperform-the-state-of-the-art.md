@@ -9,6 +9,8 @@ tags: [research-funding, innovation, research-evaluation]
 status: published
 ---
 
+{% include topic-figure.html src="/assets/images/viewpoints/pruning-new-directions.webp" alt="A gardener cuts young side shoots from a carefully supported tree whose main stem has reached a stone barrier overhead." caption="Cutting every small branch leaves fewer directions to explore when the established path reaches a limit." loading="eager" %}
+
 A new approach can begin by performing worse than an established one. Should that be enough to stop investigating it?
 
 I do not think so. Research needs room for ideas whose value is still emerging.
@@ -36,6 +38,8 @@ I imagine a tree where we cut off every new branch because it is smaller than th
 The main branch continues to grow, and for a while the strategy looks effective. But if it reaches an obstacle or breaks, we have removed the alternatives that could have grown in other directions.
 
 Research needs those smaller branches. Some will lead nowhere. Others may become useful under conditions we have not yet explored. We cannot reliably distinguish all of them at their first appearance.
+
+{% include topic-figure.html src="/assets/images/viewpoints/research-alternatives.webp" alt="Two research paths reach the same barrier. On the left, funding only today's best cuts off every alternative early. On the right, allowing new directions leaves several branches open to exploration, while one still ends unsuccessfully." caption="Supporting alternatives preserves possibilities. It does not guarantee that every new direction will succeed." %}
 
 There is a similar intuition in biological diversity: judging everything by performance under today’s conditions risks losing variation that could matter when conditions change. “Best” always depends on the environment and on what we measure.
 

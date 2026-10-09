@@ -9,5 +9,9 @@ _site/
 vendor/
 _config_ci.yml
 
+# Local browser verification artifacts
+playwright-report/
+test-results/
+
 # macOS metadata
 .DS_Store
