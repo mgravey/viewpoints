@@ -1,7 +1,13 @@
+# Generated site output and local Jekyll caches
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Local dependencies and configuration
 .bundle/
 vendor/
+_config_ci.yml
+
+# macOS metadata
 .DS_Store
