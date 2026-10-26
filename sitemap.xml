@@ -1,0 +1,31 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+{%- assign notes = site.topics | where_exp: "n", "n.status != 'draft'" | where_exp: "n", "n.sitemap != false" | sort: "date" | reverse %}
+{%- assign home_lastmod = nil %}
+{%- assign home_stamp = 0 %}
+{%- for note in notes %}
+  {%- assign note_lastmod = note.updated | default: note.date %}
+  {%- assign note_stamp = note_lastmod | date: "%s" | plus: 0 %}
+  {%- if note_stamp > home_stamp %}
+    {%- assign home_stamp = note_stamp %}
+    {%- assign home_lastmod = note_lastmod %}
+  {%- endif %}
+{%- endfor %}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ '/' | absolute_url }}</loc>
+    {%- if home_lastmod %}
+    <lastmod>{{ home_lastmod | date_to_xmlschema }}</lastmod>
+    {%- endif %}
+  </url>
+{%- for note in notes %}
+  <url>
+    <loc>{{ note.url | absolute_url }}</loc>
+    <lastmod>{{ note.updated | default: note.date | date_to_xmlschema }}</lastmod>
+  </url>
+{%- endfor %}
+</urlset>

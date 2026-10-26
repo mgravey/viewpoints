@@ -1,5 +1,11 @@
 title: "Viewpoints"
 description: "Short, citable viewpoint papers on geoscience, data science, and research practice."
+author:
+  name: "Mathieu Gravey"
+  citation_name: "Gravey, Mathieu"
+  # Person defined on the main site; reused here, not redefined.
+  id: "https://www.mgravey.com/#person"
+  url: "https://www.mgravey.com/"
 url: "https://www.mgravey.com"
 baseurl: "/viewpoints"
 permalink: pretty
@@ -20,9 +26,6 @@ collections:
     output: true
     permalink: /:name/
 
-plugins:
-  - jekyll-feed
-
 defaults:
   - scope:
       path: ""
@@ -30,10 +33,6 @@ defaults:
     values:
       layout: topic
       status: published
-
-feed:
-  collections:
-    - topics
 
 exclude:
   - node_modules

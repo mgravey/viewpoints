@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Viewpoints
+seo_title: "Viewpoints by Mathieu Gravey | Short, citable viewpoint papers"
 permalink: /
 ---
 

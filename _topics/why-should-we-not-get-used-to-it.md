@@ -7,6 +7,7 @@ date: 2026-10-09
 updated: 2026-10-09
 tags: [research-practice, scientific-reasoning, statistics, systems]
 status: published
+image: "/assets/images/viewpoints/clearing-the-path.webp"
 ---
 
 {% include topic-figure.html src="/assets/images/viewpoints/clearing-the-path.webp" alt="Walkers follow a long detour around a fallen branch while one person lifts it out of the direct path." caption="We can keep following the workaround, or remove the problem that made it necessary." loading="eager" %}

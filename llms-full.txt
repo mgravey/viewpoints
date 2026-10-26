@@ -1,0 +1,58 @@
+---
+layout: null
+permalink: /llms-full.txt
+sitemap: false
+figure_format: text
+---
+{%- comment -%}
+  Each topic's Markdown source is pulled in with include_relative, so its Liquid
+  (including figure includes, rendered as text via page.figure_format) runs but
+  kramdown does not. Jekyll reuses the cached template of the document body, so
+  front matter is normally absent already; it is stripped here if it is not.
+{%- endcomment -%}
+{%- capture nl %}
+{% endcapture -%}
+{%- assign fm_end = nl | append: "---" -%}
+{%- assign notes = site.topics | where_exp: "n", "n.status != 'draft'" | sort: "date" | reverse -%}
+# {{ site.title }} by {{ site.author.name }}: full text
+
+> {{ site.description }}
+
+Author: {{ site.author.name }} ({{ site.author.url }})
+License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+Index: {{ '/llms.txt' | absolute_url }}
+Articles: {{ notes.size }}, newest first.
+{% for note in notes %}
+{%- capture raw %}{% include_relative {{ note.path }} %}{% endcapture -%}
+{%- assign body = raw -%}
+{%- assign opening = raw | slice: 0, 3 -%}
+{%- if opening == "---" -%}
+  {%- assign rest = raw | remove_first: "---" -%}
+  {%- assign front_matter = rest | split: fm_end | first -%}
+  {%- assign body = rest | remove_first: front_matter | remove_first: fm_end -%}
+{%- endif -%}
+{%- comment -%} Map the inline HTML used in sources to plain text (math spans become code). {%- endcomment -%}
+{%- assign body = body | replace: '<p class="equation">', '' | replace: '</p>', ''
+  | replace: '<span class="math">', '`' | replace: '</span>', '`'
+  | replace: '<sub>', '_' | replace: '</sub>', '' | replace: '<sup>', '^' | replace: '</sup>', ''
+  | strip %}
+
+---
+
+# {{ note.title }}
+
+- URL: {{ note.url | absolute_url }}
+- Author: {{ site.author.name }}
+- Published: {{ note.date | date: "%Y-%m-%d" }}
+{%- if note.updated %}
+- Updated: {{ note.updated | date: "%Y-%m-%d" }}
+{%- endif %}
+- Topic: {{ note.topic }}
+{%- if note.tags and note.tags.size > 0 %}
+- Tags: {{ note.tags | join: ", " }}
+{%- endif %}
+- Summary: {{ note.summary | strip_html | normalize_whitespace }}
+- Citation: Gravey, M. ({{ note.updated | default: note.date | date: "%Y" }}). {{ note.title }}. Viewpoints. {{ note.url | absolute_url }}
+
+{{ body }}
+{% endfor %}

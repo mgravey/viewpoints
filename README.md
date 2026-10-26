@@ -21,6 +21,9 @@ Required front matter fields:
 - `updated` (date, optional)
 - `tags` (array of strings, optional)
 - `status` (`draft` or `published`; default is `published`)
+- `image` (string, optional): site-relative path of the article's first figure, e.g. `/assets/images/viewpoints/clearing-the-path.webp`. Used for `og:image`, the large Twitter card and the JSON-LD `image`.
+
+Drafts are still rendered at their URL, but get `<meta name="robots" content="noindex">` and are left out of the homepage, `sitemap.xml`, `feed.xml`, `llms.txt` and `llms-full.txt`.
 
 ## Latest viewpoints
 
@@ -41,6 +44,16 @@ Image concepts:
 - `pruning-new-directions.webp`: a gardener cuts young shoots while the main stem reaches a barrier.
 - `cycle-of-acceptance.webp`: the problem–workaround–habit cycle and a route through improvement.
 - `research-alternatives.webp`: early rejection of alternatives compared with keeping research directions open.
+
+## Search engines and LLMs
+
+All metadata is written by hand in Liquid (no SEO or sitemap gems); it is generated from `_topics/`, so new articles need no extra lists.
+
+- `_includes/seo.html` (included in the `<head>` of `_layouts/default.html`) adds the canonical URL, Open Graph and Twitter tags, Google Scholar `citation_*` tags on articles, and JSON-LD: a `ScholarlyArticle` per article and a `CollectionPage` on the homepage. The author is referenced by `@id` (`https://www.mgravey.com/#person`), which the main site defines; author details live under `author:` in `_config.yml`.
+- `sitemap.xml` lists the homepage and every published article. The main site's sitemap index at `https://www.mgravey.com/sitemap.xml` points to it.
+- `feed.xml` is a hand-written Atom feed of published articles. It replaces the `jekyll-feed` output, which did not skip `status: draft` (the gem remains in the `Gemfile` but is no longer enabled in `_config.yml`).
+- `llms.txt` follows the [llms.txt](https://llmstxt.org) convention: a short description, links to the main site's `llms.txt` and to `llms-full.txt`, and one line per article.
+- `llms-full.txt` contains every published article as Markdown, newest first, with its metadata. Figure includes become `[Figure: alt text — caption]` lines (via `figure_format: text`), and the few inline HTML tags used in articles (math spans, `<sub>`, `<sup>`) are converted to plain text. Add a matching replacement there if an article starts using other inline HTML.
 
 ## Local preview and deployment
 

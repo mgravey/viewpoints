@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+{%- assign notes = site.topics | where_exp: "n", "n.status != 'draft'" | sort: "date" | reverse -%}
+# {{ site.title }} by {{ site.author.name }}
+
+> {{ site.description }}
+
+Viewpoints is a collection of short viewpoint papers by {{ site.author.name }}: focused arguments with explicit assumptions and references when needed. Each article has a stable URL and a citation suggestion, and all content is licensed under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
+
+- Author and main website: [{{ site.author.name }}]({{ site.author.url }}) ([llms.txt](https://www.mgravey.com/llms.txt))
+- Full text of every article as Markdown: [llms-full.txt]({{ '/llms-full.txt' | absolute_url }})
+- Atom feed: [feed.xml]({{ '/feed.xml' | absolute_url }})
+
+## Articles
+{% for note in notes %}
+- [{{ note.title }}]({{ note.url | absolute_url }}): {{ note.summary | strip_html | normalize_whitespace }}
+{%- endfor %}

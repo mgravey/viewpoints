@@ -7,6 +7,7 @@ date: 2026-10-09
 updated: 2026-10-09
 tags: [research-funding, innovation, research-evaluation]
 status: published
+image: "/assets/images/viewpoints/pruning-new-directions.webp"
 ---
 
 {% include topic-figure.html src="/assets/images/viewpoints/pruning-new-directions.webp" alt="A gardener cuts young side shoots from a carefully supported tree whose main stem has reached a stone barrier overhead." caption="Cutting every small branch leaves fewer directions to explore when the established path reaches a limit." loading="eager" %}
