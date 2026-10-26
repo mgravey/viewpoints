@@ -60,6 +60,8 @@ All metadata is written by hand in Liquid (no SEO or sitemap gems); it is genera
 Install the gems with `bundle install`, then run `bundle exec jekyll serve` and open `http://localhost:4000/viewpoints/`.
 Run `bundle exec jekyll build` to check the production output in `_site/`.
 
+`Gemfile.lock` includes the `x86_64-linux-gnu` platform so the GitHub runner installs prebuilt `google-protobuf`, `sass-embedded` and `ffi` gems instead of compiling them (compiling `google-protobuf` fails on Ubuntu 26.04). After changing gems, run `bundle lock --add-platform x86_64-linux-gnu` and check that these `-x86_64-linux-gnu` entries are still in the lockfile.
+
 The GitHub Pages workflow builds and deploys pushes to `master`. Adding an article locally does not deploy it.
 Generated output, local caches, and the workflow-generated `_config_ci.yml` are ignored by Git.
 
